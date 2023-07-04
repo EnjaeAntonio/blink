@@ -1,0 +1,9 @@
+.btn-dark {
+    background-color: #491550 !important;
+    border-radius: 50px !important;
+    padding: 7px 40px !important;
+    color: #fff !important;
+    box-shadow: 0 0 9px 0 #000;
+    border: none !important;
+    font-size: 18px;
+}

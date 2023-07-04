@@ -49,7 +49,7 @@ html {
 }
 
 body {
-  background: var(--app-dark-bg);
+  background: var(--app-dark-bg) !important;
   height: 100%;
 }
 
