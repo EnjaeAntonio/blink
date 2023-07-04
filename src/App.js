@@ -8,6 +8,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import SignIn from "./components/SignIn/SignIn";
 import SignOut from "./components/SignOut/SignOut";
 import ChatRoom from "./components/ChatRoom/ChatRoom";
+import { Routes } from "react-router-dom";
 
 firebase.initializeApp({
   apiKey: "AIzaSyBfkXcOnsMP8GWu9KCNXrwaRZ765ja5zIk",
@@ -33,24 +34,25 @@ function App() {
   
   return (
     <>
-      {user ?
-      <ChatRoom 
-      useCollectionData={useCollectionData}
-      firestore={firestore}
-      currentUser={user}
-      />  
-      : 
-      <SignIn
-      buttonText="Sign in with Google"
-      handleOnClick={signInWithGoogle}
-      />  
-      }
-      <SignOut 
-      currentUser={user}
-      buttonText="Sign out"
-      handleOnClick={() => auth.signOut()}
-      />
-
+      <Routes>
+        {user ?
+          <ChatRoom 
+          useCollectionData={useCollectionData}
+          firestore={firestore}
+          currentUser={user}
+          />  
+          : 
+          <SignIn
+          buttonText="Sign in with Google"
+          handleOnClick={signInWithGoogle}
+          />  
+          }
+          <SignOut 
+          currentUser={user}
+          buttonText="Sign out"
+          handleOnClick={() => auth.signOut()}
+          />
+      </Routes>
     </>
   );
 }
