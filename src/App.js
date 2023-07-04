@@ -5,10 +5,10 @@ import 'firebase/compat/auth';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import SignIn from "./components/SignIn/SignIn";
-import SignOut from "./components/SignOut/SignOut";
-import ChatRoom from "./components/ChatRoom/ChatRoom";
 import { Routes } from "react-router-dom";
+
+import ChatRoom from "./pages/ChatRoom/ChatRoom";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 firebase.initializeApp({
   apiKey: "AIzaSyBfkXcOnsMP8GWu9KCNXrwaRZ765ja5zIk",
@@ -20,41 +20,30 @@ firebase.initializeApp({
   measurementId: "G-6LP5S0BMP3"
 });
 
-const signInWithGoogle = () =>{
-  const provider = new firebase.auth.GoogleAuthProvider
-  auth.signInWithPopup(provider);
-}
-
-
 const firestore = firebase.firestore();
 const auth = firebase.auth();
 
 function App() {
-  const [user] = useAuthState(auth); // User signed in is object, user signed out is null 
+  const [user] = useAuthState(auth); 
   
   return (
-    <>
-      <Routes>
-        {user ?
-          <ChatRoom 
-          useCollectionData={useCollectionData}
-          firestore={firestore}
-          currentUser={user}
-          />  
-          : 
-          <SignIn
-          buttonText="Sign in with Google"
-          handleOnClick={signInWithGoogle}
-          />  
-          }
-          <SignOut 
-          currentUser={user}
-          buttonText="Sign out"
-          handleOnClick={() => auth.signOut()}
-          />
-      </Routes>
-    </>
+      <>
+        {user ? 
+            <ChatRoom 
+              useCollectionData={useCollectionData}
+              firestore={firestore}
+              currentUser={user}
+              auth={auth}
+            />
+         : 
+            <LoginPage 
+              firebase={firebase} 
+              auth={auth} 
+            />
+        }
+      </>
   );
 }
+
 
 export default App;
