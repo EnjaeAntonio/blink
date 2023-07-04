@@ -34,7 +34,11 @@ function App() {
   return (
     <>
       {user ?
-      <ChatRoom />  
+      <ChatRoom 
+      useCollectionData={useCollectionData}
+      firestore={firestore}
+      currentUser={user}
+      />  
       : 
       <SignIn
       buttonText="Sign in with Google"

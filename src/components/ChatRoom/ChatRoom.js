@@ -1,11 +1,19 @@
 import React from 'react'
+import Message from "../Message/Message";
 
-function ChatRoom() {
+function ChatRoom({ firestore, useCollectionData, currentUser }) {
+    const messageRef = firestore.collection('messages');
+    const query = messageRef.orderBy('createdAt').limit(25);
+
+    const [messages] = useCollectionData(query, {idField: 'id'});
   return (
     <>
-    <section>
-        <h1 className="text-white">Hi</h1>
-    </section>
+      <section>
+      {messages &&
+            messages.map((msg) => (
+              <Message message={msg} key={msg.id} currentUser={currentUser} />
+            ))}
+      </section>
     </>
   )
 }
