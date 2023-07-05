@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react";
 
 function Message(props) {
-    const {text, uid, photoURL} = props.message;
-    const messageClass = uid === (props.currentUser && props.currentUser.uid) ? 'sent' : 'received';
+  const { text, uid, photoURL } = props.message;
+  const messageClass =
+    uid === (props.currentUser && props.currentUser.uid) ? "sent" : "received";
   return (
     <>
       <div className={`text-white ${messageClass}`}>
@@ -10,7 +11,7 @@ function Message(props) {
         <img src={photoURL} />
       </div>
     </>
-  )
+  );
 }
 
-export default Message
+export default Message;
