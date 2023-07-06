@@ -34,6 +34,7 @@ function App() {
           firestore={firestore}
           currentUser={user}
           auth={auth}
+          firebase={firebase}
         />
       ) : (
         <LoginPage firebase={firebase} auth={auth} />

@@ -7,8 +7,8 @@ function Message(props) {
   return (
     <>
       <div className={`text-white ${messageClass}`}>
-        <p>{text}</p>
         <img src={photoURL} />
+        <p>{text}</p>
       </div>
     </>
   );
