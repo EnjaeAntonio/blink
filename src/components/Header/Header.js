@@ -1,9 +1,16 @@
 import React from 'react'
 import './Header.css';
-function Header() {
+import SignOut from "../SignOut/SignOut";
+function Header({currentUser, auth}) {
   return (
-    <div>Header</div>
-  )
+		<div className="sign-out-btn">
+			<SignOut
+				currentUser={currentUser}
+				buttonText="Sign out"
+				handleOnClick={() => auth.signOut()}
+			/>
+		</div>
+	);
 }
 
 export default Header

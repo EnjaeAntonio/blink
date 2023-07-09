@@ -6,7 +6,7 @@ function Message(props) {
     uid === (props.currentUser && props.currentUser.uid) ? "sent" : "received";
   return (
     <>
-      <div className={`text-white ${messageClass}`}>
+      <div className={`${props.messageClass}`}>
         <img src={photoURL} />
         <p>{text}</p>
       </div>

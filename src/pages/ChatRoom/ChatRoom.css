@@ -1,0 +1,9 @@
+.message-container {
+	height: 100vh;
+}
+
+.messages {
+	height: 50vh;
+	overflow: scroll;
+	overflow-x: hidden;
+}
