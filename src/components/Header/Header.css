@@ -1,0 +1,3 @@
+.message-header li:not(:last-child) {
+    padding-right: .5rem;
+}

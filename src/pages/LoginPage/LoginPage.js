@@ -11,6 +11,7 @@ function LoginPage({ firebase, auth }) {
       <SignIn
         buttonText="Sign in with Google"
         handleOnClick={signInWithGoogle}
+        className="btn-primary "
       />
     </>
   );

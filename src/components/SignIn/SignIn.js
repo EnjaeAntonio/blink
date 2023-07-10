@@ -4,7 +4,7 @@ function SignIn(props) {
   return (
     <>
       <button
-        className={`btn btn-primary btn-light fw-bold ${props.buttonStyles}`}
+        className={`btn ${props.className}`}
         id={props.id}
         onClick={props.handleOnClick}
       >

@@ -6,7 +6,7 @@ function SignOut(props) {
     props.currentUser && (
       <>
         <button
-          className={`btn btn-primary btn-dark fw-bold ${props.buttonStyles}`}
+          className={`btn ${props.className}`}
           id={props.id}
           onClick={props.handleOnClick}
         >
