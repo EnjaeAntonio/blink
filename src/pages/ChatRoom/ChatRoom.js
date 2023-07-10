@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Message from '../../components/Message/Message';
-import SignOut from '../../components/SignOut/SignOut';
 import Button from '../../components/Button/Button';
 import './ChatRoom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -75,8 +74,9 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
 								</li>
 							</ul>
 						</nav>
-						<div className="chat-room py-2 bg-light-subtle container-fluid">
-							<div className="messages">
+						<div className="chat-room">
+							<div className="messages container-fluid">
+		
 								{messages &&
 									messages.map((msg) => (
 										<Message
@@ -88,40 +88,40 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
 									))}
 								<div ref={dummy}></div>
 							</div>
-							<div>
-								<form className="d-flex align-items-center mt-2" onSubmit={sendMessage}>
-									<FontAwesomeIcon
-										icon={faPaperclip}
-										className="d-flex justify-content-center align-items-center px-2"
-									/>
+							<form className="d-flex align-items-center pt-1" onSubmit={sendMessage}>
+								<FontAwesomeIcon
+									icon={faPaperclip}
+									className="d-flex justify-content-center align-items-center px-2"
+								/>
 
-									<input
-										placeholder={nullFormValue ? nullFormValue : 'Write a message...'}
-										value={formValue}
-										onChange={handleChange}
-										className="form-control mx-2"
+								<input
+									type="text"
+									placeholder={nullFormValue ? nullFormValue : 'Write a message...'}
+									value={formValue}
+									onChange={handleChange}
+									className="text-white mx-2"
+								/>
+								<div className="flex-grow-1"></div>
+								{formValue.trim() === '' ? (
+									<Button
+										buttonStyles="btn-outline-primary "
+										buttonText={
+											<>
+												<FontAwesomeIcon icon={faPaperPlane} />
+											</>
+										}
 									/>
-									{formValue.trim() == '' ? (
-										<Button
-											buttonStyles="btn-outline-primary"
-											buttonText={
-												<>
-													<FontAwesomeIcon icon={faPaperPlane} />
-												</>
-											}
-										/>
-									) : (
-										<Button
-											buttonStyles=" btn-primary"
-											buttonText={
-												<>
-													<FontAwesomeIcon icon={faPaperPlane} />
-												</>
-											}
-										/>
-									)}
-								</form>
-							</div>
+								) : (
+									<Button
+										buttonStyles="btn-primary"
+										buttonText={
+											<>
+												<FontAwesomeIcon icon={faPaperPlane} />
+											</>
+										}
+									/>
+								)}
+							</form>
 						</div>
 					</div>
 				</section>

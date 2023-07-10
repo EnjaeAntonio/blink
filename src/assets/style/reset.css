@@ -7,6 +7,8 @@
 
 :root {
   --app-dark-bg: #1a1d28;
+  --app-body-bg:  #171a24;
+  --app-darker-bg: #13161f;
   --app-light-bg: #f0f2f4;
   --app-red: #ff3c57;
   --app-green: #33ab4e;
@@ -51,7 +53,7 @@ html {
 }
 
 body {
-  background: var(--app-dark-bg) !important;
+  background: var(--app-body-bg) !important;
   height: 100%;
 }
 

@@ -1,25 +1,46 @@
 @import url(./reset.css);
 
-.chatroom-container{
-    display: grid;
-    place-items: center;
+.chatroom-container {
+	display: grid;
+	place-items: center;
 }
 
-.current-username{
-    font-size: 1rem;
+.current-username {
+	font-size: 1rem;
 }
 
-.heading{
-    font-size: 1.6rem;
+.heading {
+	font-size: 1.6rem;
 }
 ul {
-    margin-bottom: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 .message-img {
-    height: 2rem !important;
+	height: 2rem !important;
 }
 svg {
 	font-size: 1.1rem;
-    cursor: pointer;
+	cursor: pointer;
+}
+.chat-room {
+	background-color: var(--app-darker-bg);
+}
+
+form,
+input[type='text'] {
+	background-color: var(--app-dark-bg);
+}
+
+input::placeholder{
+    color: var(--app-light-bg);
+}
+/* Hide the side scroll bar */
+::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }

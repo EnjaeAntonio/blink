@@ -1,4 +1,4 @@
-# <h1 align="center">Telegram Clone :iphone: </h1>
+# <h1 align="center">Blink :iphone: </h1>
 
 ### 📋 Table of Contents
 
@@ -6,9 +6,9 @@
 - [🔒 Login Page](#🔐-login-page) // to be implemented
 - [🏠 Home Page](#🏠-home-page) // to be implemented
 
-## Introduction :wave:
+## Welcome to Blink! :wave:
 
-Messenging clone created using react
+Blink is a messaging app inspired by Telegram and created by me Enjae Antonio! Feel free to checkout the demo and try out the chat feature!
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)![React](https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 

@@ -6,7 +6,7 @@ function Header({ currentUser, auth }) {
 		<>
 			<header className="container">
 				<div className="container-fluid d-flex justify-content-between align-items-center py-2 ">
-					<label className="heading text-white">Tele Messenger</label>
+					<label className="heading text-white fw-bold">Blink</label>
 					<nav className="nav">
 						<ul className="message-header d-flex align-items-center justify-content-center">
 							<li>
