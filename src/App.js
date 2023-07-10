@@ -27,20 +27,22 @@ function App() {
   const [user] = useAuthState(auth);
 
   return (
-    <>
-      {user ? (
-        <ChatRoom
-          useCollectionData={useCollectionData}
-          firestore={firestore}
-          currentUser={user}
-          auth={auth}
-          firebase={firebase}
-        />
-      ) : (
-        <LoginPage firebase={firebase} auth={auth} />
-      )}
-    </>
-  );
+		<>
+			<div className="d-flex flex-column justify-content-center align-items-center ">
+				{user ? (
+					<ChatRoom
+						useCollectionData={useCollectionData}
+						firestore={firestore}
+						currentUser={user}
+						auth={auth}
+						firebase={firebase}
+					/>
+				) : (
+					<LoginPage firebase={firebase} auth={auth} />
+				)}
+			</div>
+		</>
+	);
 }
 
 export default App;

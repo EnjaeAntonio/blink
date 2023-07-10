@@ -2,12 +2,10 @@
   height: calc(100svh - 3.375rem);
   overflow-y: auto;
 }
+
 .messages {
-	height: 50vh;
+	max-height: 70vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
-svg {
-	font-size: 1.1rem;
-}

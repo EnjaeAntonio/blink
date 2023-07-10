@@ -1,16 +1,25 @@
 @import url(./reset.css);
 
+.chatroom-container{
+    display: grid;
+    place-items: center;
+}
+
 .current-username{
     font-size: 1rem;
 }
 
 .heading{
-    font-size: 1.1rem;
+    font-size: 1.6rem;
 }
 ul {
     margin-bottom: 0 !important;
 }
 
-img {
+.message-img {
     height: 2rem !important;
+}
+svg {
+	font-size: 1.1rem;
+    cursor: pointer;
 }
