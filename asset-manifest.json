@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/messaging-app/static/css/main.28b6eb0f.css",
-    "main.js": "/messaging-app/static/js/main.f29b20d7.js",
-    "index.html": "/messaging-app/index.html",
-    "main.28b6eb0f.css.map": "/messaging-app/static/css/main.28b6eb0f.css.map",
-    "main.f29b20d7.js.map": "/messaging-app/static/js/main.f29b20d7.js.map"
+    "main.css": "/blink/static/css/main.28b6eb0f.css",
+    "main.js": "/blink/static/js/main.6729c031.js",
+    "index.html": "/blink/index.html",
+    "main.28b6eb0f.css.map": "/blink/static/css/main.28b6eb0f.css.map",
+    "main.6729c031.js.map": "/blink/static/js/main.6729c031.js.map"
   },
   "entrypoints": [
     "static/css/main.28b6eb0f.css",
-    "static/js/main.f29b20d7.js"
+    "static/js/main.6729c031.js"
   ]
 }
