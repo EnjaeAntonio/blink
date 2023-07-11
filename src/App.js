@@ -1,48 +1,48 @@
-import "./assets/style/index.css";
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
-import "firebase/compat/auth";
+import './assets/style/index.css';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import { Routes } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { Routes } from 'react-router-dom';
 
-import ChatRoom from "./pages/ChatRoom/ChatRoom";
-import LoginPage from "./pages/LoginPage/LoginPage";
+import ChatRoom from './pages/ChatRoom/ChatRoom';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 firebase.initializeApp({
-  apiKey: "AIzaSyBfkXcOnsMP8GWu9KCNXrwaRZ765ja5zIk",
-  authDomain: "messaging-app-70b23.firebaseapp.com",
-  projectId: "messaging-app-70b23",
-  storageBucket: "messaging-app-70b23.appspot.com",
-  messagingSenderId: "444464786607",
-  appId: "1:444464786607:web:8ad39291f7e9bb68e6f85a",
-  measurementId: "G-6LP5S0BMP3",
+    apiKey: 'AIzaSyBfkXcOnsMP8GWu9KCNXrwaRZ765ja5zIk',
+    authDomain: 'messaging-app-70b23.firebaseapp.com',
+    projectId: 'messaging-app-70b23',
+    storageBucket: 'messaging-app-70b23.appspot.com',
+    messagingSenderId: '444464786607',
+    appId: '1:444464786607:web:8ad39291f7e9bb68e6f85a',
+    measurementId: 'G-6LP5S0BMP3',
 });
 
 const firestore = firebase.firestore();
 const auth = firebase.auth();
 
 function App() {
-  const [user] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
-  return (
-		<>
-			<div className="d-flex flex-column justify-content-center align-items-center ">
-				{user ? (
-					<ChatRoom
-						useCollectionData={useCollectionData}
-						firestore={firestore}
-						currentUser={user}
-						auth={auth}
-						firebase={firebase}
-					/>
-				) : (
-					<LoginPage firebase={firebase} auth={auth} />
-				)}
-			</div>
-		</>
-	);
+    return (
+        <>
+            <div className="d-flex flex-column justify-content-center align-items-center ">
+                {user ? (
+                    <ChatRoom
+                        useCollectionData={useCollectionData}
+                        firestore={firestore}
+                        currentUser={user}
+                        auth={auth}
+                        firebase={firebase}
+                    />
+                ) : (
+                    <LoginPage firebase={firebase} auth={auth} />
+                )}
+            </div>
+        </>
+    );
 }
 
 export default App;
