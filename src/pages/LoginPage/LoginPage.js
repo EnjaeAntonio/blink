@@ -1,11 +1,8 @@
 import React from "react";
 import SignIn from "../../components/SignIn/SignIn";
-function LoginPage({ firebase, auth }) {
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  };
-
+import { useApp } from "../../context/AppContext";
+function LoginPage() {
+  const { signInWithGoogle } = useApp()
   return (
     <>
       <SignIn
