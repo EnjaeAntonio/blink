@@ -2,7 +2,7 @@
 
 ### 📋 Table of Contents
 
-- [🎥 Demo](https://enjaeantonio.github.io/messaging-app)
+- [🎥 Demo](https://enjaeantonio.github.io/blink)
 - [🔒 Login Page](#🔐-login-page) // to be implemented
 - [🏠 Home Page](#🏠-home-page) // to be implemented
 
