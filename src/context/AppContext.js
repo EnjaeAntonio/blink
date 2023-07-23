@@ -12,15 +12,19 @@ function signInWithGoogle() {
 }
 
 
-function signup(email, password) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
+function signUp(email, password, username) {
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then((result) =>{
+        return result.user.updateProfile({
+            displayName: username
+        })
+    });
 }
-async function signin(email, password) {
+async function signIn(email, password) {
     return await firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
 export function AppProvider({ children }) {
-    const defaultExports = { signInWithGoogle, signup, signin };
+    const defaultExports = { signInWithGoogle, signUp, signIn };
     return <AppContext.Provider value={defaultExports}>{children}</AppContext.Provider>;
 }
 

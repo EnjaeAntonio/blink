@@ -21,13 +21,7 @@ function App() {
         <LoginPage firebase={firebase} auth={auth} />
     );
 
-    return (
-        <>
-            <div className="d-flex flex-column justify-content-center align-items-center ">
-                {content}
-            </div>
-        </>
-    );
+    return <>{content}</>;
 }
 
 export default App;

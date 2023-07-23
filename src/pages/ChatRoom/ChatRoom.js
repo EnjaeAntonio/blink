@@ -58,73 +58,78 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
 
     return (
         <>
-            <Header currentUser={currentUser} auth={auth} />
-            <section className="chatroom-container">
-                <section className="container message-container d-flex justify-content-center align-items-center">
-                    <div className="container-fluid message-card">
-                        <nav className="d-flex py-2 container-fluid border-bottom bg-light-subtle">
-                            <ul className="mb-0 p-0 w-75 ">
-                                <li className="nav-item">
-                                    <FontAwesomeIcon icon={faBars} />
-                                </li>
-                            </ul>
-                            <ul className="mb-0 p-0 w-25 d-flex justify-content-end ">
-                                <li className="nav-item">
-                                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                                </li>
-                                <li className="nav-item mx-2">
-                                    <FontAwesomeIcon icon={faPhone} />
-                                </li>
-                                <li className="nav-item">
-                                    <FontAwesomeIcon icon={faEllipsisV} />
-                                </li>
-                            </ul>
-                        </nav>
-                        <div className="chat-room">
-                            <div className="messages container-fluid">
-                                {showMessages}
-                                <div ref={dummy}></div>
-                            </div>
-                            <form className="d-flex align-items-center pt-1" onSubmit={sendMessage}>
-                                <FontAwesomeIcon
-                                    icon={faPaperclip}
-                                    className="d-flex justify-content-center align-items-center px-2"
-                                />
+            <div className="d-flex flex-column justify-content-center align-items-center ">
+                <Header currentUser={currentUser} auth={auth} />
+                <section className="chatroom-container">
+                    <section className="container message-container d-flex justify-content-center align-items-center">
+                        <div className="container-fluid message-card">
+                            <nav className="d-flex py-2 container-fluid border-bottom bg-light-subtle">
+                                <ul className="mb-0 p-0 w-75 ">
+                                    <li className="nav-item">
+                                        <FontAwesomeIcon icon={faBars} />
+                                    </li>
+                                </ul>
+                                <ul className="mb-0 p-0 w-25 d-flex justify-content-end ">
+                                    <li className="nav-item">
+                                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                                    </li>
+                                    <li className="nav-item mx-2">
+                                        <FontAwesomeIcon icon={faPhone} />
+                                    </li>
+                                    <li className="nav-item">
+                                        <FontAwesomeIcon icon={faEllipsisV} />
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div className="chat-room">
+                                <div className="messages container-fluid">
+                                    {showMessages}
+                                    <div ref={dummy}></div>
+                                </div>
+                                <form
+                                    className="d-flex align-items-center pt-1"
+                                    onSubmit={sendMessage}
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faPaperclip}
+                                        className="d-flex justify-content-center align-items-center px-2"
+                                    />
 
-                                <input
-                                    type="text"
-                                    placeholder={
-                                        nullFormValue ? nullFormValue : 'Write a message...'
-                                    }
-                                    value={formValue}
-                                    onChange={handleChange}
-                                    className="text-white mx-2"
-                                />
-                                <div className="flex-grow-1"></div>
-                                {formValue.trim() === '' ? (
-                                    <Button
-                                        buttonStyles="btn-outline-primary "
-                                        buttonText={
-                                            <>
-                                                <FontAwesomeIcon icon={faPaperPlane} />
-                                            </>
+                                    <input
+                                        type="text"
+                                        placeholder={
+                                            nullFormValue ? nullFormValue : 'Write a message...'
                                         }
+                                        value={formValue}
+                                        onChange={handleChange}
+                                        className="text-white mx-2"
                                     />
-                                ) : (
-                                    <Button
-                                        buttonStyles="btn-primary"
-                                        buttonText={
-                                            <>
-                                                <FontAwesomeIcon icon={faPaperPlane} />
-                                            </>
-                                        }
-                                    />
-                                )}
-                            </form>
+                                    <div className="flex-grow-1"></div>
+                                    {formValue.trim() === '' ? (
+                                        <Button
+                                            buttonStyles="btn-outline-primary "
+                                            buttonText={
+                                                <>
+                                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                                </>
+                                            }
+                                        />
+                                    ) : (
+                                        <Button
+                                            buttonStyles="btn-primary"
+                                            buttonText={
+                                                <>
+                                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                                </>
+                                            }
+                                        />
+                                    )}
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </section>
-            </section>
+            </div>
         </>
     );
 }
