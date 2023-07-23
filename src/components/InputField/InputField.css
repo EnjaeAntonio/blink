@@ -1,101 +1,11 @@
-.input-label {
-    font-weight: 600;
-    font-size: 18px;
-    color: #491550;
-}
 
-.input-field {
-    border-radius: 50px !important;
-    padding: 7px 40px !important;
-    box-shadow: 0 0 9px 0 #9a9a9a;
-    border: none !important;
-    font-size: 18px;
-}
-
-.input-wrapper {
-    position: relative;
-}
-.error-text{
-    color: red  ;
-}
-
-.after-wrapper::after {
-    font-size: 18px;
-    position: absolute;
-    top: 8px;
-    right: 40px;
-    color: rgba(0, 0, 0, 0.72);
-    pointer-events: none;
-    font-weight: bold;
-}
-
-.before-wrapper::before {
-    font-size: 18px;
-    position: absolute;
-    top: 7px;
-    left: 40px;
-    color: rgba(0, 0, 0, 0.72);
-    pointer-events: none;
-    font-weight: bold;
-}
-
-.before-wrapper-padding>.input-field {
-    padding-left: 60px !important;
-}
-
-.dollar-before::before {
-    content: '$';
-}
-
-.dollar-before>.input-field {
-    padding-left: 65px !important;
-}
-
-.per-hour-after::after {
-    content: '/hour';
-}
-
-.year-after::after {
-    content: 'years';
-}
-
-.per-day-after::after {
-    content: '/day';
-}
-
-
-.plus-one-before::before {
-    top: 7px !important;
-    content: '+1';
-}
-
-.plus-one-before>.input-field {
-    padding-left: 65px !important;
-}
-
-.edit-pencil{
-    font-size: 18px !important;
-    color: #491550;
-    cursor: pointer;
-}
 
 /* Mobile designs starts here */
 @media only screen and (max-width: 767px) {
-    .input-field {
-        padding: 10px 25px !important;
-    }
 
-    .before-wrapper-padding>.input-field {
-        padding-left: 50px !important;
-    }
-    .calendar-after::after {
-        right: 25px;
-    }
-    .time-after::after {
-        right: 25px;
-    }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 360px) {}
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+}
 
 /* Mobile designs ends here */

@@ -10,8 +10,36 @@
 }
 
 .heading {
-    font-size: 1.6rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.72);
 }
+
+.generic-paragraph {
+  font-size: 1.125rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.generic-sub-paragraph {
+  font-size: 1.125rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.generic-paragraph-small {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.generic-paragraph>a {
+  color: rgba(5, 90, 255, 0.7) !important;
+  text-decoration: none;
+}
+
+
+.title{
+	font-size: 2.1rem;
+}
+
 ul {
     margin-bottom: 0 !important;
 }
@@ -27,8 +55,7 @@ svg {
     background-color: var(--app-darker-bg);
 }
 
-form,
-input[type='text'] {
+.msg-input {
     background-color: var(--app-dark-bg);
 }
 

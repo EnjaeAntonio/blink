@@ -33,7 +33,7 @@ function InputField(props) {
     };
 
     return (
-        <div className={`form-group mb-4 ${props.inputStyle}`}>
+        <div className={`form-group ${props.inputStyle}`}>
             <div className="row">
                 <div className={`col ${props.colStyle}`}>
                     {props.inputLabel ? (

@@ -12,6 +12,7 @@ import {
     faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Header/Header';
+import InputField from '../../components/InputField/InputField';
 
 function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth }) {
     const messageRef = firestore.collection('messages');
@@ -23,9 +24,6 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
 
     const dummy = useRef(null);
 
-    function handleChange(e) {
-        setFormValue(e.target.value);
-    }
 
     const showMessages = messages?.map((msg) => (
         <Message message={msg} key={msg.id} currentUser={currentUser} messageClass="text-black" />
@@ -95,14 +93,14 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                                         className="d-flex justify-content-center align-items-center px-2"
                                     />
 
-                                    <input
-                                        type="text"
-                                        placeholder={
+                                    <InputField
+                                        inputType="text"
+                                        inputPlaceholder={
                                             nullFormValue ? nullFormValue : 'Write a message...'
                                         }
                                         value={formValue}
-                                        onChange={handleChange}
-                                        className="text-white mx-2"
+                                        handleOnChange={setFormValue}
+                                        inputTypeStyle="msg-input text-white mx-2"
                                     />
                                     <div className="flex-grow-1"></div>
                                     {formValue.trim() === '' ? (
