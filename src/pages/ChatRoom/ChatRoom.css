@@ -1,14 +1,15 @@
 .message-container {
-  height: calc(100svh - 4rem);
-  overflow-y: auto;
+    height: calc(100svh - 4em);
+    overflow-y: auto;
 }
 
 .messages {
-	max-height: 70vh;
-	overflow-y: scroll;
-	overflow-x: hidden;
+    max-height: 70vh;
+    min-width: 50vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.chat-room{
-	max-width: 330px;
+input[type="text"]{
+	width: 100%;
 }

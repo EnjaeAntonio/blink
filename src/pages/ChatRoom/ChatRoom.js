@@ -101,7 +101,6 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
 									onChange={handleChange}
 									className="text-white mx-2"
 								/>
-								<div className="flex-grow-1"></div>
 								{formValue.trim() === '' ? (
 									<Button
 										buttonStyles="btn-outline-primary "
