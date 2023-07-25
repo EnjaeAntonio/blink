@@ -12,7 +12,7 @@ function App() {
 
     return (
         <Routes>
-            <Route exact path="/home" element={<SignUp firebase={firebase} auth={auth} />} />
+            <Route exact path="/blink" element={<SignUp firebase={firebase} auth={auth} />} />
             <Route exact path="/login" element={<Login/>} />
 
             {user && (

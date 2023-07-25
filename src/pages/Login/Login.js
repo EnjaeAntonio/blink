@@ -19,20 +19,41 @@ function Login() {
             await signInWithGoogle();
             navigate('/chat');
         } catch (error) {
-            setErrorMessage(error);
+            setErrorMessage(error.message);
             setIsInfoValid(true);
             console.error(error);
         }
     }
     async function handleSignIn(e) {
         e.preventDefault();
-        try {
-            await signIn(email, password);
-            navigate('/chat');
-        } catch (error) {
-            setErrorMessage(error)
-            setIsInfoValid(true);
-            console.error(error);
+        if (password !== '' && email !== '') {
+            try {
+                await signIn(email, password);
+                navigate('/chat');
+            } catch (error) {
+                let errorMessage;
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                        errorMessage = 'User not found. PLease try again';
+                        break;
+                    case 'auth/wrong-password':
+                        errorMessage = 'Incorrect password';
+                        break;
+                    case 'auth/email-already-in-use':
+                        errorMessage = 'Email already in use';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'Invalid credentials, please try again.';
+                        break;
+                    default:
+                        errorMessage = error.message;
+                }
+                setIsInfoValid(true);
+                setErrorMessage(errorMessage);
+                console.error(error);
+            }
+        } else {
+            setErrorMessage('Please fill in all required fields');
         }
     }
 
@@ -46,8 +67,6 @@ function Login() {
                         inputId="email"
                         handleOnChange={setEmail}
                         value={email}
-                        errors={isInfoValid}
-                        errorMessage={isInfoValid ? errorMessage : null}
                         inputTypeStyle=""
                         inputLabel="Email"
                         colStyle="custom-col-style"
@@ -58,25 +77,27 @@ function Login() {
                         inputId="password"
                         handleOnChange={setPassword}
                         value={password}
+                        error={isInfoValid}
+                        errorMessage={isInfoValid ? errorMessage : null}
                         inputTypeStyle=""
                         inputLabel="Password"
                         colStyle="custom-col-style"
                         inputPlaceholder="Enter your password"
                     />
-                    <p className="generic-paragraph-small">
-                        Don't have an account? <Link to="/home">Sign up</Link>
-                    </p>
                     <ButtonDark
                         buttonText="Log in"
                         handleOnClick={handleSignIn}
-                        buttonStyles="mb-2"
+                        buttonStyles="my-3"
                     />
-                    <p className="generic-paragraph-small text-center">Or</p>
+                    <p className="generic-paragraph-small text-center mb-0">Or</p>
                     <SignIn
                         buttonText="Sign in with Google"
                         handleOnClick={handleSignInWithGoogle}
-                        className="btn-primary "
+                        className="btn-primary mt-3"
                     />
+                    <p className="generic-paragraph-small mb-0 mt-2">
+                        Don't have an account? <Link to="/blink">Sign up</Link>
+                    </p>
                 </form>
             </div>
         </>
