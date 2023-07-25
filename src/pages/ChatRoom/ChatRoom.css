@@ -1,6 +1,6 @@
 .message-container {
-    height: calc(100svh - 4em);
-    overflow-y: auto;
+  height: calc(100svh - 5rem);
+  overflow-y: auto;
 }
 
 .messages {

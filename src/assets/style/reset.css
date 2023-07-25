@@ -6,60 +6,61 @@
 */
 
 :root {
-  --app-dark-bg: #1a1d28;
-  --app-body-bg:  #171a24;
-  --app-darker-bg: #13161f;
-  --app-light-bg: #f0f2f4;
-  --app-red: #ff3c57;
-  --app-green: #33ab4e;
-  --app-purple: #833cff;
-  --app-orange: #ff833c;
-  --app-blue: #3c57ff;
-  --app-blue-hover: #364ee6;
-  --app-yellow: #f0e84c;
-  --app-pink: #ff6cb9;
-  --app-cyan: #00d1b2;
-  --app-teal: #20c997;
-  --app-lime: #c0d72c;
-  --app-indigo: #6610f2;
-  --app-brown: #a5673f;
-  --app-gray: #adb5bd;
+    --app-dark-bg: #1a1d28;
+    --app-body-bg: #171a24;
+    --app-darker-bg: #13161f;
+    --app-light-bg: #f0f2f4;
+    --app-red: #ff3c57;
+    --app-green: #33ab4e;
+    --app-purple: #833cff;
+    --app-orange: #ff833c;
+    --app-blue: #3c57ff;
+    --app-blue-hover: #364ee6;
+    --app-yellow: #f0e84c;
+    --app-pink: #ff6cb9;
+    --app-cyan: #00d1b2;
+    --app-teal: #20c997;
+    --app-lime: #c0d72c;
+    --app-indigo: #6610f2;
+    --app-brown: #a5673f;
+    --app-gray: #adb5bd;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: inherit;
-  outline: none;
-  border-style: none;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    outline: none;
+    border-style: none;
+    vertical-align: baseline;
 }
 
 html {
-  height: 100%;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 100%;
-  font-weight: 400;
-  line-height: 1.5;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    text-rendering: geometricPrecision;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--app-body-bg) !important;
-  height: 100%;
+    background: var(--app-body-bg) !important;
+    height: 100%;
 }
 
 ul,
 ol {
-  list-style: none;
+    list-style: none;
 }
 
 img,
@@ -67,8 +68,8 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 p,
@@ -78,7 +79,7 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 li,
@@ -87,40 +88,77 @@ i,
 figure,
 img,
 button,
-input[type="button"],
-input[type="submit"] {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+input[type='button'],
+input[type='submit'] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 input,
 textarea,
 button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
-input[type="button"],
-input[type="submit"],
-input[type="clear"],
+/* Style to remove the down arrow key in all text fields of type-number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input[type='button'],
+input[type='submit'],
+input[type='clear'],
 button,
 a {
-  cursor: pointer;
+    cursor: pointer;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0) !important;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0) !important;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px black !important;
+  box-shadow: inset 0 0 6px black !important;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
