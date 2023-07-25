@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
-import SignOut from '../SignOut/SignOut';
 import { useNavigate, Link } from 'react-router-dom';
+import Button from '../Button/Button';
 function Header({ currentUser, auth }) {
 	return (
         <>
@@ -17,7 +17,7 @@ function Header({ currentUser, auth }) {
                             </li>
                             <li className="sign-out-btn">
                                 <Link to='/login'>
-                                    <SignOut
+                                    <Button
                                         currentUser={currentUser}
                                         buttonText="Sign out"
                                         handleOnClick={() => auth.signOut()}
