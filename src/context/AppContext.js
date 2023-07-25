@@ -6,25 +6,37 @@ export function useApp() {
     return useContext(AppContext);
 }
 
-function signInWithGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
+async function signInWithTwitter() {
+    const provider = new firebase.auth.TwitterAuthProvider();
+    return await auth.signInWithPopup(provider);
 }
 
+async function signInWithFacebook() {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    return await auth.signInWithPopup(provider);
+}
+
+async function signInWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return await auth.signInWithPopup(provider);
+}
 
 async function signUp(email, password, username) {
-    return await firebase.auth().createUserWithEmailAndPassword(email, password).then((result) =>{
-        return result.user.updateProfile({
-            displayName: username
-        })
-    });
+    return await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then((result) => {
+            return result.user.updateProfile({
+                displayName: username,
+            });
+        });
 }
 async function signIn(email, password) {
     return await firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
 export function AppProvider({ children }) {
-    const defaultExports = { signInWithGoogle, signUp, signIn };
+    const defaultExports = { signInWithGoogle, signInWithTwitter, signInWithFacebook, signUp, signIn };
     return <AppContext.Provider value={defaultExports}>{children}</AppContext.Provider>;
 }
 

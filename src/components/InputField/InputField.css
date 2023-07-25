@@ -1,8 +1,10 @@
-
+.input-label {
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.6);
+}
 
 /* Mobile designs starts here */
 @media only screen and (max-width: 767px) {
-
 }
 
 @media only screen and (min-width: 320px) and (max-width: 360px) {
