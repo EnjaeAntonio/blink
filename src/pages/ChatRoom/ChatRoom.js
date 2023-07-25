@@ -84,7 +84,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                                     <div ref={dummy}></div>
                                 </div>
                                 <form
-                                    className="d-flex gap-1 align-items-center pt-1"
+                                    className="d-flex gap-1 p-2 align-items-center pt-1"
                                     onSubmit={sendMessage}
                                 >
                                     <FontAwesomeIcon
@@ -99,6 +99,8 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                                         }
                                         value={formValue}
                                         handleOnChange={setFormValue}
+                                        inputStyle="w-100"
+                                        inputWrapperStyle=""
                                         inputTypeStyle="msg-input text-black"
                                     />
 

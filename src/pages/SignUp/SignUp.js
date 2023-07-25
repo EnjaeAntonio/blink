@@ -23,7 +23,7 @@ function SignUp() {
             console.error('Failed to sign in with Google: ', error);
         }
     }
-    
+
     async function handleSignUp(e) {
         e.preventDefault();
         if (username !== '' && password !== '' && email !== '') {
@@ -33,9 +33,28 @@ function SignUp() {
                 setErrorMessage('');
                 navigate('/chat');
             } catch (error) {
+                let errorMessage;
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                        errorMessage = 'User not found. PLease try again';
+                        break;
+                    case 'auth/wrong-password':
+                        errorMessage = 'Incorrect password';
+                        break;
+                    case 'auth/email-already-in-use':
+                        errorMessage = 'Email already in use, please try again';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'Invalid credentials, please try again.';
+                        break;
+                    default:
+                        errorMessage = error.message;
+                }
                 setIsInfoValid(true);
-                setErrorMessage(error.message);
+                setErrorMessage(errorMessage);
             }
+        } else {
+            setErrorMessage('Please fill in all required fields');
         }
     }
 
@@ -60,8 +79,6 @@ function SignUp() {
                         inputId="email"
                         handleOnChange={setEmail}
                         value={email}
-                        errors={isInfoValid}
-                        errorMessage={isInfoValid ? errorMessage : null}
                         inputStyle=""
                         inputLabel="Email"
                         colStyle="custom-col-style"
@@ -72,25 +89,27 @@ function SignUp() {
                         inputId="password"
                         handleOnChange={setPassword}
                         value={password}
+                        errors={isInfoValid}
+                        errorMessage={isInfoValid ? errorMessage : null}
                         inputStyle=""
                         inputLabel="Password"
                         colStyle="custom-col-style"
                         inputPlaceholder="Enter your password"
                     />
-                    <p className="generic-paragraph-small">
-                        Already have an account? <Link to="/login">Log in</Link>
-                    </p>
                     <ButtonDark
                         buttonText="Create account"
                         handleOnClick={handleSignUp}
-                        buttonStyles="mb-2"
+                        buttonStyles="my-3"
                     />
-                    <p className="generic-paragraph-small text-center">Or</p>
+                    <p className="generic-paragraph-small mb-0 text-center">Or</p>
                     <SignIn
                         buttonText="Sign up with Google"
                         handleOnClick={handleSignInWithGoogle}
-                        className="btn-primary "
+                        className="btn-primary mt-3"
                     />
+                    <p className="generic-paragraph-small mb-0 mt-2">
+                        Already have an account? <Link to="/login">Log in</Link>
+                    </p>
                 </form>
             </div>
         </>

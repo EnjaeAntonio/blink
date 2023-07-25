@@ -69,7 +69,7 @@ function InputField(props) {
             </div>
             {props.errors ? (
                 <>
-                    <div className={`error-text  ${props.errorStyle}`}>
+                    <div className={`text-danger mb-2 ${props.errorStyle}`}>
                         <i className="fa fa-times error-symbol" />
                         <span className="">{props.errorMessage}</span>
                     </div>
