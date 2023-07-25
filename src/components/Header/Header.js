@@ -16,7 +16,7 @@ function Header({ currentUser, auth }) {
                                 </label>
                             </li>
                             <li className="sign-out-btn">
-                                <Link to='/blink'>
+                                <Link to='/login'>
                                     <SignOut
                                         currentUser={currentUser}
                                         buttonText="Sign out"

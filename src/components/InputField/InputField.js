@@ -35,19 +35,14 @@ function InputField(props) {
     return (
         <div className={`form-group ${props.inputStyle}`}>
             <div className="row">
-                <div className={`col ${props.colStyle}`}>
+                <div className={`${props.colStyle}`}>
                     {props.inputLabel ? (
-                        <label htmlFor={props.inputId} className="mb-3 input-label">
+                        <label htmlFor={props.inputId} className="mt-2 mb-1 input-label">
                             {props.inputLabel}
                         </label>
                     ) : (
                         <></>
                     )}{' '}
-                </div>
-                <div className="col text-end me-2">
-                    {props.isEditable && (
-                        <i className="fa fa-pencil edit-pencil " onClick={props.handleOnEdit} />
-                    )}
                 </div>
             </div>
             <div

@@ -21,13 +21,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
     const [messages] = useCollectionData(query, { idField: 'id' });
     const [formValue, setFormValue] = useState('');
     const [nullFormValue, setNullFormValue] = useState('');
-
     const dummy = useRef(null);
-
-
-    const showMessages = messages?.map((msg) => (
-        <Message message={msg} key={msg.id} currentUser={currentUser} messageClass="text-black" />
-    ));
 
     async function sendMessage(e) {
         e.preventDefault();
@@ -36,17 +30,22 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
             return;
         }
 
-        const { uid, photoURL } = auth.currentUser;
+        const { uid, photoURL, displayName } = auth.currentUser;
         await messageRef.add({
             text: formValue,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             uid,
             photoURL,
+            displayName,
         });
 
         setNullFormValue('');
         setFormValue('');
     }
+
+    const showMessages = messages?.map((msg) => (
+        <Message message={msg} key={msg.id} currentUser={currentUser} messageClass="text-black" />
+    ));
 
     useEffect(() => {
         if (dummy.current) {
@@ -85,7 +84,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                                     <div ref={dummy}></div>
                                 </div>
                                 <form
-                                    className="d-flex align-items-center pt-1"
+                                    className="d-flex gap-1 align-items-center pt-1"
                                     onSubmit={sendMessage}
                                 >
                                     <FontAwesomeIcon
@@ -100,8 +99,9 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                                         }
                                         value={formValue}
                                         handleOnChange={setFormValue}
-                                        inputTypeStyle="msg-input text-white mx-2"
+                                        inputTypeStyle="msg-input text-black"
                                     />
+
                                     <div className="flex-grow-1"></div>
                                     {formValue.trim() === '' ? (
                                         <Button

@@ -12,8 +12,8 @@ function signInWithGoogle() {
 }
 
 
-function signUp(email, password, username) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password).then((result) =>{
+async function signUp(email, password, username) {
+    return await firebase.auth().createUserWithEmailAndPassword(email, password).then((result) =>{
         return result.user.updateProfile({
             displayName: username
         })

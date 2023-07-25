@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import SignIn from '../../components/SignIn/SignIn';
 import { useApp } from '../../context/AppContext';
 import { useNavigate } from 'react-router-dom';
-import './LoginPage.css';
+import './SignUp.css';
 import InputField from '../../components/InputField/InputField';
 import ButtonDark from '../../components/ButtonDark/ButtonDark';
 import { Link } from 'react-router-dom';
-function LoginPage() {
+function SignUp() {
     const { signInWithGoogle, signUp } = useApp();
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -43,7 +43,7 @@ function LoginPage() {
         <>
             <div className="signup-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={handleSignUp} className="d-flex flex-column bg-light p-4">
-                    <h1 className="title ">Welcome to Blink!</h1>
+                    <h1 className="title">Welcome to Blink!</h1>
                     <InputField
                         inputType="text"
                         inputId="username"
@@ -77,12 +77,17 @@ function LoginPage() {
                         colStyle="custom-col-style"
                         inputPlaceholder="Enter your password"
                     />
-                    <p className="generic-sub-paragraph">
-                        Already have an account? <Link>Log in</Link>
+                    <p className="generic-paragraph-small">
+                        Already have an account? <Link to="/login">Log in</Link>
                     </p>
-                    <ButtonDark buttonText="Sign Up" handleOnClick={handleSignUp} />
+                    <ButtonDark
+                        buttonText="Create account"
+                        handleOnClick={handleSignUp}
+                        buttonStyles="mb-2"
+                    />
+                    <p className="generic-paragraph-small text-center">Or</p>
                     <SignIn
-                        buttonText="Sign in with Google"
+                        buttonText="Sign up with Google"
                         handleOnClick={handleSignInWithGoogle}
                         className="btn-primary "
                     />
@@ -92,4 +97,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+export default SignUp;
