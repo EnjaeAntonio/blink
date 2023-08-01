@@ -62,7 +62,7 @@ function SignUp() {
         <>
             <div className="signup-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={handleSignUp} className="d-flex flex-column bg-light p-4">
-                    <h1 className="title">Welcome to Blink!</h1>
+                    <h1 className="title fw-bold text-center">Welcome to Blink!</h1>
                     <InputField
                         inputType="text"
                         inputId="username"
@@ -96,11 +96,7 @@ function SignUp() {
                         colStyle="custom-col-style"
                         inputPlaceholder="Enter your password"
                     />
-                    <ButtonDark
-                        buttonText="Create account"
-                        handleOnClick={handleSignUp}
-                        buttonStyles="my-3"
-                    />
+                    <ButtonDark buttonText="Create account" handleOnClick={handleSignUp} buttonStyles="my-3" />
                     <p className="generic-paragraph-small mb-0 text-center">Or</p>
                     <SignIn
                         buttonText="Sign up with Google"
