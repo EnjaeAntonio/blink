@@ -15,6 +15,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
     const messageRef = firestore.collection('messages');
     const query = messageRef.orderBy('createdAt');
     const [image, setImage] = useState(null);
+    const [video, setVideo] = useState(null);
     const [messages] = useCollectionData(query, { idField: 'id' });
     const [formValue, setFormValue] = useState('');
     const [nullFormValue, setNullFormValue] = useState('');
@@ -36,11 +37,13 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
             photoURL,
             displayName,
             messageImage: image,
+            messageVideo: video,
         });
 
         setNullFormValue('');
         setFormValue('');
         setImage(null);
+        setVideo(null);
     }
 
     const selectImageOnClick = (e) => {
@@ -51,24 +54,40 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
     const handleFileChange = async (e) => {
         const file = e.target.files[0];
         const storage = getStorage();
-        const storageRef = ref(storage, `user-images/${file.name}`);
+        let storageRef;
+
+        if (file.type.includes('image')) {
+            storageRef = ref(storage, `user-images/${file.name}`);
+        } else if (file.type.includes('video')) {
+            storageRef = ref(storage, `user-videos/${file.name}`);
+        } else {
+            toast.error('File type not supported');
+            return;
+        }
+
         const snapshot = await uploadBytes(storageRef, file);
         const downloadUrl = await getDownloadURL(snapshot.ref);
-        setImage(downloadUrl);
+
+        if (file.type.includes('image')) {
+            setImage(downloadUrl);
+        } else if (file.type.includes('video')) {
+            setVideo(downloadUrl);
+        }
+
         return downloadUrl;
     };
 
     useEffect(() => {
-        if (image) {
+        if (image || video) {
             try {
-                toast.success('Image successfully added');
-                setNullFormValue('Image successfully added');
+                toast.success(image ? 'Image successfully added' : 'Video successfully added');
+                setNullFormValue(image ? 'Image successfully added' : 'Video successfully added');
                 return;
             } catch (error) {
                 toast.error(error);
             }
         }
-    }, [image]);
+    }, [image, video]);
 
     const showMessages = messages?.map((msg) => <Message message={msg} key={msg.id} currentUser={currentUser} />);
 
@@ -114,8 +133,8 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                                         className="d-none"
                                         id="add-profile-pic"
                                         onChange={handleFileChange}
-                                        accept="image/png, image/jpeg, image/jpg"
-                                    ></input>
+                                        accept="image/png, image/jpeg, image/jpg, video/mp4, video/mov, video/avi"
+                                    />
                                     <FontAwesomeIcon
                                         onClick={selectImageOnClick}
                                         icon={faPaperclip}
