@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import InputField from '../../components/InputField/InputField';
 import { Link } from 'react-router-dom';
-import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import {faGoogle} from '@fortawesome/free-brands-svg-icons';
 import Button from '../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function SignUp() {
-    const { signInWithFacebook, signInWithTwitter, signInWithGoogle, signUp } = useApp();
+    const {signInWithGoogle, signUp } = useApp();
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -30,26 +30,6 @@ function SignUp() {
         }
     }
 
-    // async function handleSignInWithTwitter(e) {
-    //     e.preventDefault();
-    //     try {
-    //         await signInWithTwitter();
-    //         navigate('/chat');
-    //     } catch (error) {
-    //         setErrorMessage(error.message);
-    //         setIsInfoValid(true);
-    //     }
-    // }
-    // async function handleSignInWithFacebook(e) {
-    //     e.preventDefault();
-    //     try {
-    //         await signInWithFacebook();
-    //         navigate('/chat');
-    //     } catch (error) {
-    //         setErrorMessage(error.message);
-    //         setIsInfoValid(true);
-    //     }
-    // }
     async function handleSignUp(e) {
         e.preventDefault();
         if (username !== '' && password !== '' && email !== '') {

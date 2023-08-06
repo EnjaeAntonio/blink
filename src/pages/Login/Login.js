@@ -8,12 +8,12 @@ import SignIn from '../../components/SignIn/SignIn';
 import './Login.css';
 import Button from '../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Login() {
-    const { signIn, signInWithGoogle, signInWithTwitter, signInWithFacebook } = useApp();
+    const { signIn, signInWithGoogle } = useApp();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -31,26 +31,6 @@ function Login() {
         }
     }
 
-    // async function handleSignInWithTwitter(e) {
-    //     e.preventDefault();
-    //     try {
-    //         await signInWithTwitter();
-    //         navigate('/chat');
-    //     } catch (error) {
-    //         setErrorMessage(error.message);
-    //         setIsInfoValid(true);
-    //     }
-    // }
-    // async function handleSignInWithFacebook(e) {
-    //     e.preventDefault();
-    //     try {
-    //         await signInWithFacebook();
-    //         navigate('/chat');
-    //     } catch (error) {
-    //         setErrorMessage(error.message);
-    //         setIsInfoValid(true);
-    //     }
-    // }
     async function handleSignIn(e) {
         e.preventDefault();
         if (password !== '' && email !== '') {
@@ -85,6 +65,7 @@ function Login() {
 
     return (
         <>
+            <ToastContainer />
             <HomeHeader />
             <div className="container login-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={handleSignIn} className="card p-4 form login-form rounded-2 d-flex justify-content-center">

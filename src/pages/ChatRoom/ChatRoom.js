@@ -4,9 +4,6 @@ import Button from '../../components/Button/Button';
 import './ChatRoom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faMagnifyingGlass,
-    faEllipsisV,
-    faPhone,
     faRightFromBracket,
     faBars,
     faPaperclip,
@@ -14,10 +11,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Header/Header';
 import InputField from '../../components/InputField/InputField';
-import containsBadWord from '../../utils/wordfilter';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth }) {
     const messageRef = firestore.collection('messages');
