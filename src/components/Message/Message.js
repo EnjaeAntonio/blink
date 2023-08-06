@@ -16,7 +16,7 @@ function Message(props) {
                 </div>
                 <p className="p-2">{text}</p>
                 {messageImage && <img src={messageImage} alt={props.imgAlt} className="w-25" />}
-                {messageVideo && <video src={messageVideo} className='w-50' controls='true'/>}
+                {messageVideo && <video src={messageVideo} className='w-75' controls='true'/>}
             </article>
         </>
     );
