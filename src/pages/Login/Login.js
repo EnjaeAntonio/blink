@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import InputField from '../../components/InputField/InputField';
-import ButtonDark from '../../components/ButtonDark/ButtonDark';
-import SignIn from '../../components/SignIn/SignIn';
 import './Login.css';
 import Button from '../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
