@@ -1,7 +1,7 @@
 import React from 'react';
 import './Message.css';
 function Message(props) {
-    const { text, uid, photoURL, displayName, messageImage, createdAt } = props.message;
+    const { text, uid, photoURL, displayName, messageImage, messageVideo, createdAt } = props.message;
 
     const messageClass = uid === (props.currentUser && props.currentUser.uid) ? 'sent text-white' : 'bg-dark text-white received';
     return (
@@ -16,6 +16,7 @@ function Message(props) {
                 </div>
                 <p className="p-2">{text}</p>
                 {messageImage && <img src={messageImage} alt={props.imgAlt} className="w-25" />}
+                {messageVideo && <video src={messageVideo} className='w-50' controls='true'/>}
             </article>
         </>
     );

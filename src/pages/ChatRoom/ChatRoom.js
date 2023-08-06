@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket, faBars, faPaperclip, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Header/Header';
 import InputField from '../../components/InputField/InputField';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { ToastContainer, toast } from 'react-toastify';
@@ -56,25 +56,38 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
         const storage = getStorage();
         let storageRef;
 
+        // You might want to organize your storage to separate images and videos
         if (file.type.includes('image')) {
             storageRef = ref(storage, `user-images/${file.name}`);
         } else if (file.type.includes('video')) {
             storageRef = ref(storage, `user-videos/${file.name}`);
         } else {
+            // File is not an image or a video
             toast.error('File type not supported');
             return;
         }
 
-        const snapshot = await uploadBytes(storageRef, file);
-        const downloadUrl = await getDownloadURL(snapshot.ref);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-        if (file.type.includes('image')) {
-            setImage(downloadUrl);
-        } else if (file.type.includes('video')) {
-            setVideo(downloadUrl);
-        }
-
-        return downloadUrl;
+        uploadTask.on(
+            'state_changed',
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setNullFormValue('Upload is ' + progress + '% done');
+            },
+            (error) => {
+                toast.error('Upload failed');
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    if (file.type.includes('image')) {
+                        setImage(downloadURL);
+                    } else if (file.type.includes('video')) {
+                        setVideo(downloadURL);
+                    }
+                });
+            }
+        );
     };
 
     useEffect(() => {
