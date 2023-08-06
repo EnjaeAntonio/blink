@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/blink/static/css/main.ed2140a5.css",
-    "main.js": "/blink/static/js/main.c5bf5886.js",
+    "main.css": "/blink/static/css/main.3658e77d.css",
+    "main.js": "/blink/static/js/main.04e1c94d.js",
     "index.html": "/blink/index.html",
-    "main.ed2140a5.css.map": "/blink/static/css/main.ed2140a5.css.map",
-    "main.c5bf5886.js.map": "/blink/static/js/main.c5bf5886.js.map"
+    "main.3658e77d.css.map": "/blink/static/css/main.3658e77d.css.map",
+    "main.04e1c94d.js.map": "/blink/static/js/main.04e1c94d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed2140a5.css",
-    "static/js/main.c5bf5886.js"
+    "static/css/main.3658e77d.css",
+    "static/js/main.04e1c94d.js"
   ]
 }
