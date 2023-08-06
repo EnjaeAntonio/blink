@@ -42,6 +42,8 @@
 
 .form {
     background-color: #121219 !important;
+    -webkit-box-shadow: 5px 6px 15px -5px #000000;
+    box-shadow: 5px 6px 15px -5px #000000;
 }
 
 .title {

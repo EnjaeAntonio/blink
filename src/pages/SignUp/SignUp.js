@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet';
 function SignUp() {
     const {signInWithGoogle, signUp } = useApp();
     const [email, setEmail] = useState('');
@@ -66,11 +67,15 @@ function SignUp() {
 
     return (
         <>
+            <Helmet>
+                <title>Sign up</title>
+            </Helmet>
             <ToastContainer />
             <HomeHeader />
             <div className="signup-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={handleSignUp} className="signup-form p-4 form d-flex card rounded-2 flex-column ">
-                    <h1 className="title fw-bold text-center">Sign up</h1>
+                    <h1 className="title fw-bold">Sign up</h1>
+                    <div className="line mb-2"></div>
                     <InputField
                         inputType="text"
                         inputId="username"

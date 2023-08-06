@@ -13,6 +13,7 @@ import Header from '../../components/Header/Header';
 import InputField from '../../components/InputField/InputField';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth }) {
     const messageRef = firestore.collection('messages');
@@ -77,8 +78,12 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
         }
     }, [messages]);
 
+
     return (
         <>
+        <Helmet>
+            <title>Chat room</title>
+        </Helmet>
             <div className="d-flex flex-column justify-content-center align-items-center ">
                 <Header currentUser={currentUser} auth={auth} />
                 <section className="chatroom-container">

@@ -10,6 +10,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet';
 function Login() {
     const { signIn, signInWithGoogle } = useApp();
     const [email, setEmail] = useState('');
@@ -63,12 +64,16 @@ function Login() {
 
     return (
         <>
+            <Helmet>
+                    <title>Login</title>
+            </Helmet>
             <ToastContainer />
             <HomeHeader />
             <div className="container login-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={handleSignIn} className="card p-4 form login-form rounded-2 d-flex justify-content-center">
                     <div className="d-grid">
-                        <h1 className="title fw-bold text-center ">Login</h1>
+                        <h1 className="title fw-bold">Login</h1>
+                        <div className='line mb-2'></div>
                         <InputField
                             inputType="text"
                             inputId="email"

@@ -9,13 +9,12 @@ function Message(props) {
             <article className={`my-2 ${[messageClass]}`}>
                 <div className="d-flex message-wrapper">
                     <img className="m-2 message-img rounded-circle" src={photoURL} />
-                    <div className="d-flex justify-content-between align-items-center w-100">
+                    <div className="d-flex justify-content-between align-items-center w-100 pe-2">
                         <h2 className="current-username mb-0">{displayName}</h2>
                         <p className="current-username mb-0">{createdAt?.toDate().toLocaleTimeString()}</p>
                     </div>
                 </div>
                 <p className="p-2">{text}</p>
-
                 {messageImage && <img src={messageImage} alt="Message" className="w-25" />}
             </article>
         </>

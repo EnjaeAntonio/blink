@@ -15,9 +15,6 @@ function Header({ currentUser, auth }) {
                                     Hello! {currentUser.displayName}
                                 </label>
                             </li>
-                            <li className="sign-out-btn">
-      
-                            </li>
                         </ul>
                     </nav>
                 </div>
