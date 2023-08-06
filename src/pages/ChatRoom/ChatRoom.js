@@ -73,7 +73,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
             'state_changed',
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                setNullFormValue('Upload is ' + progress + '% done');
+                setNullFormValue('Upload is ' + Math.trunc(progress) + '% done');
             },
             (error) => {
                 toast.error('Upload failed');
