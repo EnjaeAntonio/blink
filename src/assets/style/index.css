@@ -1,5 +1,11 @@
 @import url(./reset.css);
-
+.message-container,
+.signup-container,
+.login-container {
+    height: calc(100svh - 5rem) !important;
+    overflow-y: auto;
+    font-family: 'Jost', sans-serif !important;
+}
 .chatroom-container {
     display: grid;
     place-items: center;
@@ -10,34 +16,37 @@
 }
 
 .heading {
-  font-size: 2.4rem;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.72);
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.72);
 }
 
 .generic-paragraph {
-  font-size: 1.125rem;
-  color: rgba(0, 0, 0, 0.6);
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .generic-sub-paragraph {
-  font-size: 1.125rem;
-  color: rgba(0, 0, 0, 0.4);
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .generic-paragraph-small {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
-.generic-paragraph>a {
-  color: rgba(5, 90, 255, 0.7) !important;
-  text-decoration: none;
+.generic-paragraph-small > a {
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
+.form {
+    background-color: #121219 !important;
+}
 
-.title{
-	font-size: 2.1rem;
+.title {
+    color: #fff;
+    font-size: 2.1rem;
 }
 
 ul {

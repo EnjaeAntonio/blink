@@ -9,8 +9,11 @@ import './Login.css';
 import Button from '../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import HomeHeader from '../../components/HomeHeader/HomeHeader';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Login() {
-    const { signIn, signInWithGoogle } = useApp();
+    const { signIn, signInWithGoogle, signInWithTwitter, signInWithFacebook } = useApp();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -23,11 +26,31 @@ function Login() {
             await signInWithGoogle();
             navigate('/chat');
         } catch (error) {
-            setErrorMessage(error.message);
+            toast.error(error.message);
             setIsInfoValid(true);
-            console.error(error);
         }
     }
+
+    // async function handleSignInWithTwitter(e) {
+    //     e.preventDefault();
+    //     try {
+    //         await signInWithTwitter();
+    //         navigate('/chat');
+    //     } catch (error) {
+    //         setErrorMessage(error.message);
+    //         setIsInfoValid(true);
+    //     }
+    // }
+    // async function handleSignInWithFacebook(e) {
+    //     e.preventDefault();
+    //     try {
+    //         await signInWithFacebook();
+    //         navigate('/chat');
+    //     } catch (error) {
+    //         setErrorMessage(error.message);
+    //         setIsInfoValid(true);
+    //     }
+    // }
     async function handleSignIn(e) {
         e.preventDefault();
         if (password !== '' && email !== '') {
@@ -53,8 +76,7 @@ function Login() {
                         errorMessage = error.message;
                 }
                 setIsInfoValid(true);
-                setErrorMessage(errorMessage);
-                console.error(error);
+                toast.error(errorMessage);
             }
         } else {
             setErrorMessage('Please fill in all required fields');
@@ -63,16 +85,17 @@ function Login() {
 
     return (
         <>
-            <div className="login-container d-flex flex-column justify-content-center align-items-center ">
-                <form onSubmit={handleSignIn} className="card login-form rounded-2 bg-light d-flex justify-content-center">
-                    <div className="d-grid p-4">
-                        <h1 className="title fw-bold text-center">Login</h1>
+            <HomeHeader />
+            <div className="container login-container d-flex flex-column justify-content-center align-items-center ">
+                <form onSubmit={handleSignIn} className="card p-4 form login-form rounded-2 d-flex justify-content-center">
+                    <div className="d-grid">
+                        <h1 className="title fw-bold text-center ">Login</h1>
                         <InputField
                             inputType="text"
                             inputId="email"
                             handleOnChange={setEmail}
                             value={email}
-                            inputTypeStyle="form-input"
+                            inputTypeStyle="form-input text-white"
                             inputLabel="Email"
                             colStyle="custom-col-style"
                         />
@@ -83,7 +106,7 @@ function Login() {
                             value={password}
                             error={isInfoValid}
                             errorMessage={isInfoValid ? errorMessage : null}
-                            inputTypeStyle="form-input"
+                            inputTypeStyle="form-input text-white"
                             inputLabel="Password"
                             colStyle="custom-col-style"
                         />
@@ -92,23 +115,24 @@ function Login() {
                                 <Link className="generic-paragraph-small text-decoration-none">Forgot password?</Link>
                             </p>
                         </div>
-                        <Button buttonText="Log in" handleOnClick={handleSignIn} buttonStyles="login-btn rounded-5" />
+                        <Button buttonText="Login" handleOnClick={handleSignIn} buttonStyles="login-btn rounded-5" />
 
-                        <p className="generic-paragraph-small text-center my-3">Or</p>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <div className="d-flex w-75 justify-content-evenly">
-                                <div className="facebook rounded-circle">
-                                    <Button buttonText={<FontAwesomeIcon icon={faFacebookF} />} />
-                                </div>
-                                <div className="google rounded-circle">
-                                    <Button handleOnClick={handleSignInWithGoogle} buttonText={<FontAwesomeIcon icon={faGoogle} />} />
-                                </div>
-                                <div className="twitter rounded-circle">
-                                    <Button buttonText={<FontAwesomeIcon icon={faTwitter} />} />
-                                </div>
-                            </div>
+                        <div className="separator py-3">
+                            <div className="line"></div>
+                            <span className="or-text">Or</span>
+                            <div className="line"></div>
                         </div>
-
+                        <div className="d-flex cursor-pointer google justify-content-center align-items-center">
+                            <Button
+                                handleOnClick={handleSignInWithGoogle}
+                                buttonText={
+                                    <>
+                                        <FontAwesomeIcon icon={faGoogle} />
+                                        <span className="ms-2 text-white">Login with Google</span>
+                                    </>
+                                }
+                            />
+                        </div>
                         <p className="generic-paragraph-small mb-0 mt-3">
                             Don't have an account? <Link to="/blink">Sign up</Link>
                         </p>

@@ -17,8 +17,12 @@ async function signInWithFacebook() {
 }
 
 async function signInWithGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    return await auth.signInWithPopup(provider);
+    try {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        return await auth.signInWithPopup(provider);
+    } catch (error) {
+        throw error;
+    }
 }
 
 async function signUp(email, password, username) {

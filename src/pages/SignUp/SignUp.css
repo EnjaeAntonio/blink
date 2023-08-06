@@ -1,11 +1,9 @@
-.signup-container {
-    height: 100vh;
-}
-
-.signup-form{
-    background-color: #E5E5E5 !important;
-}
-
 .signup-btn {
     background-color: #fca311 !important;
+}
+.google svg {
+    color: #fff !important;
+}
+.google label {
+    cursor: pointer;
 }

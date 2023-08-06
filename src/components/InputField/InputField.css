@@ -1,8 +1,11 @@
 .input-label {
     font-size: 0.8rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
-
+.form-input {
+    background-color: #282831 !important;
+    width: 300px !important;
+}
 /* Mobile designs starts here */
 @media only screen and (max-width: 767px) {
 }

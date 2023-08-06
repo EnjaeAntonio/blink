@@ -16,14 +16,7 @@ function Header({ currentUser, auth }) {
                                 </label>
                             </li>
                             <li className="sign-out-btn">
-                                <Link to='/login'>
-                                    <Button
-                                        currentUser={currentUser}
-                                        buttonText="Sign out"
-                                        handleOnClick={() => auth.signOut()}
-                                        buttonStyles="text-white signout-btn"
-                                    />
-                                </Link>
+      
                             </li>
                         </ul>
                     </nav>
