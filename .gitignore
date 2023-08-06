@@ -10,6 +10,8 @@ public/favicon/apple-touch-icon.png
 public/favicon/android-chrome-512x512.png
 public/favicon/android-chrome-192x192.png
 public/favicon/site.webmanifest
+
+src/utils/wordFilter.js
 # testing
 /coverage
 

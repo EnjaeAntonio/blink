@@ -3,17 +3,10 @@ import Message from '../../components/Message/Message';
 import Button from '../../components/Button/Button';
 import './ChatRoom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faMagnifyingGlass,
-    faEllipsisV,
-    faPhone,
-    faBars,
-    faPaperclip,
-    faPaperPlane,
-} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faEllipsisV, faPhone, faBars, faPaperclip, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Header/Header';
 import InputField from '../../components/InputField/InputField';
-
+import containsBadWord from '../../utils/wordfilter';
 function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth }) {
     const messageRef = firestore.collection('messages');
     const query = messageRef.orderBy('createdAt');
@@ -30,6 +23,11 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
             return;
         }
 
+        if (containsBadWord(formValue)) {
+            setNullFormValue('Message contains a bad word!');
+            return;
+        }
+
         const { uid, photoURL, displayName } = auth.currentUser;
         await messageRef.add({
             text: formValue,
@@ -43,9 +41,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
         setFormValue('');
     }
 
-    const showMessages = messages?.map((msg) => (
-        <Message message={msg} key={msg.id} currentUser={currentUser} messageClass="text-black" />
-    ));
+    const showMessages = messages?.map((msg) => <Message message={msg} key={msg.id} currentUser={currentUser} messageClass="text-black" />);
 
     useEffect(() => {
         if (dummy.current) {
@@ -83,20 +79,12 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                                     {showMessages}
                                     <div ref={dummy}></div>
                                 </div>
-                                <form
-                                    className="d-flex gap-1 p-2 align-items-center pt-1"
-                                    onSubmit={sendMessage}
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faPaperclip}
-                                        className="d-flex justify-content-center align-items-center px-2"
-                                    />
+                                <form className="d-flex gap-1 p-2 align-items-center pt-1" onSubmit={sendMessage}>
+                                    <FontAwesomeIcon icon={faPaperclip} className="d-flex justify-content-center align-items-center px-2" />
 
                                     <InputField
                                         inputType="text"
-                                        inputPlaceholder={
-                                            nullFormValue ? nullFormValue : 'Write a message...'
-                                        }
+                                        inputPlaceholder={nullFormValue ? nullFormValue : 'Write a message...'}
                                         value={formValue}
                                         handleOnChange={setFormValue}
                                         inputStyle="w-100"

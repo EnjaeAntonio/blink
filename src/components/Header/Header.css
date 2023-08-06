@@ -1,3 +1,10 @@
 .message-header li:not(:last-child) {
     padding-right: .5rem;
 }
+header {
+    background-color: #FCA311 !important;
+}
+
+.signout-btn {
+    background-color: #ef233c !important;
+}

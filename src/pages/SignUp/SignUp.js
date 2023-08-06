@@ -6,6 +6,9 @@ import './SignUp.css';
 import InputField from '../../components/InputField/InputField';
 import ButtonDark from '../../components/ButtonDark/ButtonDark';
 import { Link } from 'react-router-dom';
+import { faFacebookF, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import Button from '../../components/Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function SignUp() {
     const { signInWithGoogle, signUp } = useApp();
     const [email, setEmail] = useState('');
@@ -61,7 +64,7 @@ function SignUp() {
     return (
         <>
             <div className="signup-container d-flex flex-column justify-content-center align-items-center ">
-                <form onSubmit={handleSignUp} className="d-flex flex-column bg-light p-4">
+                <form onSubmit={handleSignUp} className="signup-form d-flex card rounded-2 flex-column bg-light p-4">
                     <h1 className="title fw-bold text-center">Welcome to Blink!</h1>
                     <InputField
                         inputType="text"
@@ -72,7 +75,6 @@ function SignUp() {
                         inputTypeStyle="bg-light"
                         inputLabel="Username"
                         colStyle="custom-col-style"
-                        inputPlaceholder="Enter your username"
                     />
                     <InputField
                         inputType="text"
@@ -82,7 +84,6 @@ function SignUp() {
                         inputStyle=""
                         inputLabel="Email"
                         colStyle="custom-col-style"
-                        inputPlaceholder="Enter your email"
                     />
                     <InputField
                         inputType="text"
@@ -91,18 +92,25 @@ function SignUp() {
                         value={password}
                         errors={isInfoValid}
                         errorMessage={isInfoValid ? errorMessage : null}
-                        inputStyle=""
+                        inputTypeStyle="form-input mb-3"
                         inputLabel="Password"
                         colStyle="custom-col-style"
-                        inputPlaceholder="Enter your password"
                     />
-                    <ButtonDark buttonText="Create account" handleOnClick={handleSignUp} buttonStyles="my-3" />
-                    <p className="generic-paragraph-small mb-0 text-center">Or</p>
-                    <SignIn
-                        buttonText="Sign up with Google"
-                        handleOnClick={handleSignInWithGoogle}
-                        className="btn-primary mt-3"
-                    />
+                    <Button buttonText="Create account" handleOnClick={handleSignUp} buttonStyles="signup-btn text-white rounded-5" />
+                    <p className="generic-paragraph-small text-center my-3">Or</p>
+                    <div className="d-flex justify-content-center align-items-center">
+                        <div className="d-flex w-75 justify-content-evenly">
+                            <div className="facebook rounded-circle">
+                                <Button buttonText={<FontAwesomeIcon icon={faFacebookF} />} />
+                            </div>
+                            <div className="google rounded-circle">
+                                <Button handleOnClick={handleSignInWithGoogle} buttonText={<FontAwesomeIcon icon={faGoogle} />} />
+                            </div>
+                            <div className="twitter rounded-circle">
+                                <Button buttonText={<FontAwesomeIcon icon={faTwitter} />} />
+                            </div>
+                        </div>
+                    </div>
                     <p className="generic-paragraph-small mb-0 mt-2">
                         Already have an account? <Link to="/login">Log in</Link>
                     </p>

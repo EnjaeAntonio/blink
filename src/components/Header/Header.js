@@ -5,8 +5,8 @@ import Button from '../Button/Button';
 function Header({ currentUser, auth }) {
 	return (
         <>
-            <header className="container">
-                <div className="container-fluid d-flex justify-content-between align-items-center py-2 ">
+            <header className="w-100">
+                <div className="container d-flex justify-content-between align-items-center py-2 ">
                     <label className="heading text-white fw-bold">Blink</label>
                     <nav className="nav">
                         <ul className="message-header d-flex align-items-center justify-content-center">
@@ -21,7 +21,7 @@ function Header({ currentUser, auth }) {
                                         currentUser={currentUser}
                                         buttonText="Sign out"
                                         handleOnClick={() => auth.signOut()}
-                                        className="btn-danger"
+                                        buttonStyles="text-white signout-btn"
                                     />
                                 </Link>
                             </li>

@@ -64,18 +64,17 @@ function Login() {
     return (
         <>
             <div className="login-container d-flex flex-column justify-content-center align-items-center ">
-                <form onSubmit={handleSignIn} className="d-flex justify-content-center bg-light p-4">
-                    <div className="d-grid">
+                <form onSubmit={handleSignIn} className="card login-form rounded-2 bg-light d-flex justify-content-center">
+                    <div className="d-grid p-4">
                         <h1 className="title fw-bold text-center">Login</h1>
                         <InputField
                             inputType="text"
                             inputId="email"
                             handleOnChange={setEmail}
                             value={email}
-                            inputTypeStyle=""
+                            inputTypeStyle="form-input"
                             inputLabel="Email"
                             colStyle="custom-col-style"
-                            inputPlaceholder="Enter your email"
                         />
                         <InputField
                             inputType="text"
@@ -84,35 +83,33 @@ function Login() {
                             value={password}
                             error={isInfoValid}
                             errorMessage={isInfoValid ? errorMessage : null}
-                            inputTypeStyle=""
+                            inputTypeStyle="form-input"
                             inputLabel="Password"
                             colStyle="custom-col-style"
-                            inputPlaceholder="Enter your password"
                         />
                         <div className="w-100 d-flex justify-content-end ">
                             <p className="generic-paragraph-small">
                                 <Link className="generic-paragraph-small text-decoration-none">Forgot password?</Link>
                             </p>
                         </div>
-                        <ButtonDark
-                            buttonText="Log in"
-                            handleOnClick={handleSignIn}
-                            buttonStyles="login-btn rounded-5"
-                        />
+                        <Button buttonText="Log in" handleOnClick={handleSignIn} buttonStyles="login-btn rounded-5" />
 
-                        <p className="generic-paragraph-small text-center mt-3 mb-2">Or sign up using</p>
-                        <div className="d-flex justify-content-evenly">
-                            <div className="facebook rounded-circle">
-                                <Button buttonText={<FontAwesomeIcon icon={faFacebookF} />} />
-                            </div>
-                            <div className="google rounded-circle">
-                                <Button handleOnClick={handleSignInWithGoogle} buttonText={<FontAwesomeIcon icon={faGoogle} />} />
-                            </div>
-                            <div className="twitter rounded-circle">
-                                <Button buttonText={<FontAwesomeIcon icon={faTwitter} />} />
+                        <p className="generic-paragraph-small text-center my-3">Or</p>
+                        <div className="d-flex justify-content-center align-items-center">
+                            <div className="d-flex w-75 justify-content-evenly">
+                                <div className="facebook rounded-circle">
+                                    <Button buttonText={<FontAwesomeIcon icon={faFacebookF} />} />
+                                </div>
+                                <div className="google rounded-circle">
+                                    <Button handleOnClick={handleSignInWithGoogle} buttonText={<FontAwesomeIcon icon={faGoogle} />} />
+                                </div>
+                                <div className="twitter rounded-circle">
+                                    <Button buttonText={<FontAwesomeIcon icon={faTwitter} />} />
+                                </div>
                             </div>
                         </div>
-                        <p className="generic-paragraph-small mb-0 mt-2">
+
+                        <p className="generic-paragraph-small mb-0 mt-3">
                             Don't have an account? <Link to="/blink">Sign up</Link>
                         </p>
                     </div>

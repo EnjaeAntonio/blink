@@ -54,7 +54,7 @@ html {
 }
 
 body {
-    background: var(--app-body-bg) !important;
+    background: #14213D !important;
     height: 100%;
 }
 
