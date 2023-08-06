@@ -96,7 +96,7 @@ function SignUp() {
                         colStyle="custom-col-style"
                     />
                     <InputField
-                        inputType="text"
+                        inputType="password"
                         inputId="password"
                         handleOnChange={setPassword}
                         value={password}
@@ -115,6 +115,7 @@ function SignUp() {
                     <div className="d-flex cursor-pointer google justify-content-center align-items-center">
                         <Button
                             handleOnClick={handleSignInWithGoogle}
+                            buttonStyles="text-white w-100"
                             buttonText={
                                 <>
                                     <FontAwesomeIcon icon={faGoogle} />

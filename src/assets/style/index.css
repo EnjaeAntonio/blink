@@ -55,6 +55,15 @@ ul {
     margin-bottom: 0 !important;
 }
 
+a:focus {
+    outline: none !important;
+}
+
+.no-outline:focus, .no-outline:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .message-img {
     height: 2rem !important;
 }

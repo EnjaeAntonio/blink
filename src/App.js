@@ -6,6 +6,7 @@ import { firebase, firestore, auth } from './config/FirebaseConfig';
 import ChatRoom from './pages/ChatRoom/ChatRoom';
 import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 function App() {
     const [user] = useAuthState(auth);
@@ -14,7 +15,7 @@ function App() {
         <Routes>
             <Route exact path="/blink" element={<SignUp firebase={firebase} auth={auth} />} />
             <Route exact path="/login" element={<Login/>} />
-
+            <Route exact path='/forgot-password' element={<ForgotPassword/>} />
             {user && (
                 <Route
                     path="/chat"

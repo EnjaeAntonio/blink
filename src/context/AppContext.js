@@ -1,8 +1,13 @@
 import React, { useContext } from 'react';
 import { firebase, auth } from '../config/FirebaseConfig';
+import { sendPasswordResetEmail } from 'firebase/auth';
 const AppContext = React.createContext();
 export function useApp() {
     return useContext(AppContext);
+}
+
+async function forgotPassword(email) {
+    return sendPasswordResetEmail(auth, email);
 }
 
 async function signInWithTwitter() {
@@ -39,7 +44,7 @@ async function signIn(email, password) {
 }
 
 export function AppProvider({ children }) {
-    const defaultExports = { signInWithGoogle, signInWithTwitter, signInWithFacebook, signUp, signIn };
+    const defaultExports = { signInWithGoogle, signInWithTwitter, signInWithFacebook, forgotPassword, signUp, signIn };
     return <AppContext.Provider value={defaultExports}>{children}</AppContext.Provider>;
 }
 

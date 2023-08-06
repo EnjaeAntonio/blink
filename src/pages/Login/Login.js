@@ -12,7 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet';
 function Login() {
-    const { signIn, signInWithGoogle } = useApp();
+    const { signIn, signInWithGoogle, forgotPassword } = useApp();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -29,6 +29,8 @@ function Login() {
             setIsInfoValid(true);
         }
     }
+
+    console.log(email);
 
     async function handleSignIn(e) {
         e.preventDefault();
@@ -62,10 +64,11 @@ function Login() {
         }
     }
 
+
     return (
         <>
             <Helmet>
-                    <title>Login</title>
+                <title>Login</title>
             </Helmet>
             <ToastContainer />
             <HomeHeader />
@@ -73,7 +76,7 @@ function Login() {
                 <form onSubmit={handleSignIn} className="card p-4 form login-form rounded-2 d-flex justify-content-center">
                     <div className="d-grid">
                         <h1 className="title fw-bold">Login</h1>
-                        <div className='line mb-2'></div>
+                        <div className="line mb-2"></div>
                         <InputField
                             inputType="text"
                             inputId="email"
@@ -84,7 +87,7 @@ function Login() {
                             colStyle="custom-col-style"
                         />
                         <InputField
-                            inputType="text"
+                            inputType="password"
                             inputId="password"
                             handleOnChange={setPassword}
                             value={password}
@@ -95,8 +98,8 @@ function Login() {
                             colStyle="custom-col-style"
                         />
                         <div className="w-100 d-flex justify-content-end ">
-                            <p className="generic-paragraph-small">
-                                <Link className="generic-paragraph-small text-decoration-none">Forgot password?</Link>
+                            <p className="generic-paragraph-small cursor-pointer">
+                                <Link to="/forgot-password">Forgot password?</Link>
                             </p>
                         </div>
                         <Button buttonText="Login" handleOnClick={handleSignIn} buttonStyles="login-btn rounded-5" />
@@ -109,7 +112,8 @@ function Login() {
                         <div className="d-flex cursor-pointer google justify-content-center align-items-center">
                             <Button
                                 handleOnClick={handleSignInWithGoogle}
-                                buttonText={
+                                buttonStyles="text-white w-100"
+                                    buttonText={
                                     <>
                                         <FontAwesomeIcon icon={faGoogle} />
                                         <span className="ms-2 text-white">Login with Google</span>
