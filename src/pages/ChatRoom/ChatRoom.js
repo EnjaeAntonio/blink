@@ -3,17 +3,13 @@ import Message from '../../components/Message/Message';
 import Button from '../../components/Button/Button';
 import './ChatRoom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faRightFromBracket,
-    faBars,
-    faPaperclip,
-    faPaperPlane,
-} from '@fortawesome/free-solid-svg-icons';
+import { faRightFromBracket, faBars, faPaperclip, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Header/Header';
 import InputField from '../../components/InputField/InputField';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { ToastContainer, toast } from 'react-toastify';
 
 function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth }) {
     const messageRef = firestore.collection('messages');
@@ -59,14 +55,18 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
         const snapshot = await uploadBytes(storageRef, file);
         const downloadUrl = await getDownloadURL(snapshot.ref);
         setImage(downloadUrl);
-
         return downloadUrl;
     };
 
     useEffect(() => {
         if (image) {
-            setNullFormValue('Image added to message!');
-            return;
+            try {
+                toast.success('Image successfully added');
+                setNullFormValue('Image successfully added');
+                return;
+            } catch (error) {
+                toast.error(error);
+            }
         }
     }, [image]);
 
@@ -78,12 +78,12 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
         }
     }, [messages]);
 
-
     return (
         <>
-        <Helmet>
-            <title>Chat room</title>
-        </Helmet>
+            <ToastContainer />
+            <Helmet>
+                <title>Chat room</title>
+            </Helmet>
             <div className="d-flex flex-column justify-content-center align-items-center ">
                 <Header currentUser={currentUser} auth={auth} />
                 <section className="chatroom-container">

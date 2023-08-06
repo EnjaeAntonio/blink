@@ -1,8 +1,6 @@
 import React from 'react';
 import './Header.css';
-import { useNavigate, Link } from 'react-router-dom';
-import Button from '../Button/Button';
-function Header({ currentUser, auth }) {
+function Header({ currentUser }) {
 	return (
         <>
             <header className="w-100">

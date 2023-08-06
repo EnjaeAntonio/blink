@@ -1,3 +1,7 @@
+.message-card{
+    max-width: 600px;
+}
+
 .messages {
     max-height: 70vh;
     width: 30vw;
