@@ -72,8 +72,9 @@ function SignUp() {
             </Helmet>
             <ToastContainer />
             <HomeHeader />
+
             <div className="signup-container d-flex flex-column justify-content-center align-items-center ">
-                <form onSubmit={handleSignUp} className="signup-form p-4 form d-flex card rounded-2 flex-column ">
+                <form onSubmit={handleSignUp} className="signup-form p-4 form d-flex card rounded-2 flex-column "> 
                     <h1 className="title fw-bold">Sign up</h1>
                     <div className="line mb-2"></div>
                     <InputField

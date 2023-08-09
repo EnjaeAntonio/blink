@@ -1,10 +1,5 @@
 @charset "utf-8";
 
-/*
-  A CSS reset style sheet is a list of rules that 'reset' all of the default 
-  browser styles
-*/
-
 :root {
     --app-dark-bg: #1a1d28;
     --app-body-bg: #171a24;
@@ -54,7 +49,7 @@ html {
 }
 
 body {
-    background-color: var(--app-dark-bg) !important;
+    background-color: var(--app-body-bg) !important;
     height: 100%;
 }
 

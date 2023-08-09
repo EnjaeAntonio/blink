@@ -33,9 +33,9 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
         await messageRef.add({
             text: formValue,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            uid,
-            photoURL,
-            displayName,
+            id: uid,
+            photoURL: photoURL,
+            displayName: displayName,
             messageImage: image,
             messageVideo: video,
         });

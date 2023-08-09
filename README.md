@@ -8,7 +8,7 @@
 
 ## Welcome to Blink! :wave:
 
-Blink is a messaging app inspired by Telegram and created by me Enjae Antonio! Feel free to checkout the demo and try out the chat feature!
+Blink is a messaging app inspired by Telegram and created by me Enjae Antonio! This project demonstrates the use of react and utilizing firebase. In this project I worked on clean code, user experience (error handling, 404 error handling, etc) and file structure.
 
 
 ## 🏠 Home Page
