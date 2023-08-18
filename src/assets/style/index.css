@@ -2,92 +2,93 @@
 .message-container,
 .signup-container,
 .login-container {
-    height: calc(100svh - 5rem) !important;
-    overflow-y: auto;
-    font-family: 'Jost', sans-serif !important;
+	height: calc(100svh - 5rem) !important;
+	overflow-y: auto;
+	font-family: 'Jost', sans-serif !important;
 }
 .chatroom-container {
-    display: grid;
-    place-items: center;
+	display: grid;
+	place-items: center;
 }
 
 .current-username {
-    font-size: 1rem;
+	font-size: 1rem;
 }
 
 .heading {
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.72);
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.72);
 }
 
 .generic-paragraph {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.6);
+	font-size: 1.125rem;
+	color: rgba(255, 255, 255, 0.6);
 }
 
 .generic-sub-paragraph {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.4);
+	font-size: 1.125rem;
+	color: rgba(255, 255, 255, 0.4);
 }
 
 .generic-paragraph-small {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6) !important;
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .generic-paragraph-small > a {
-    color: rgba(255, 255, 255, 0.6) !important;
+	color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .form {
-    background-color: #121219 !important;
-    -webkit-box-shadow: 5px 6px 15px -5px #000000;
-    box-shadow: 5px 6px 15px -5px #000000;
+	background-color: #121219 !important;
+	-webkit-box-shadow: 5px 6px 15px -5px #000000;
+	box-shadow: 5px 6px 15px -5px #000000;
 }
 
 .title {
-    color: #fff;
-    font-size: 2.1rem;
+	color: #fff;
+	font-size: 2.1rem;
 }
 
 ul {
-    margin-bottom: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 a:focus {
-    outline: none !important;
+	outline: none !important;
 }
 
-.no-outline:focus, .no-outline:active {
-    outline: none !important;
-    box-shadow: none !important;
+.no-outline:focus,
+.no-outline:active {
+	outline: none !important;
+	box-shadow: none !important;
 }
 
 .message-img {
-    height: 2rem !important;
+	height: 2rem !important;
 }
 svg {
-    font-size: 1.1rem;
-    cursor: pointer;
+	font-size: 1.1rem;
+	cursor: pointer;
 }
 .chat-room {
-    background-color: var(--app-darker-bg);
+	background-color: var(--app-darker-bg);
 }
 
 .msg-input {
-    background-color: var(--app-dark-bg);
+	background-color: var(--app-dark-bg);
 }
 
 input::placeholder {
-    color: var(--app-light-bg);
+	color: var(--app-light-bg);
 }
 /* Hide the side scroll bar */
 ::-webkit-scrollbar {
-    width: 0;
-    background-color: transparent;
+	width: 0;
+	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: transparent;
+	background-color: transparent;
 }

@@ -116,7 +116,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
             <Helmet>
                 <title>Chat room</title>
             </Helmet>
-            <div className="d-flex flex-column justify-content-center align-items-center ">
+            <section className="d-flex flex-column justify-content-center align-items-center ">
                 <Header currentUser={currentUser} auth={auth} />
                 <section className="chatroom-container">
                     <section className="container message-container d-flex justify-content-center align-items-center">
@@ -192,7 +192,7 @@ function ChatRoom({ firebase, firestore, useCollectionData, currentUser, auth })
                         </div>
                     </section>
                 </section>
-            </div>
+            </section>
         </>
     );
 }

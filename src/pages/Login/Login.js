@@ -72,7 +72,7 @@ function Login() {
             </Helmet>
             <ToastContainer />
             <HomeHeader />
-            <div className="container login-container d-flex flex-column justify-content-center align-items-center ">
+            <section className="container login-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={handleSignIn} className="card p-4 form login-form rounded-2 d-flex justify-content-center">
                     <div className="d-grid">
                         <h1 className="title fw-bold">Login</h1>
@@ -126,7 +126,7 @@ function Login() {
                         </p>
                     </div>
                 </form>
-            </div>
+            </section>
         </>
     );
 }

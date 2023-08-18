@@ -31,7 +31,7 @@ function ForgotPassword() {
             </Helmet>
             <ToastContainer />
             <HomeHeader />
-            <div className="container login-container d-flex flex-column justify-content-center align-items-center ">
+            <section className="container login-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={changePassword} className="card p-4 form login-form rounded-2 d-flex justify-content-center">
                     <div className="d-grid">
                         <h1 className="title fw-bold">Reset password</h1>
@@ -64,7 +64,7 @@ function ForgotPassword() {
                         </p>
                     </div>
                 </form>
-            </div>
+            </section>
         </>
     );
 }

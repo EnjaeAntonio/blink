@@ -73,7 +73,7 @@ function SignUp() {
             <ToastContainer />
             <HomeHeader />
 
-            <div className="signup-container d-flex flex-column justify-content-center align-items-center ">
+            <section className="signup-container d-flex flex-column justify-content-center align-items-center ">
                 <form onSubmit={handleSignUp} className="signup-form p-4 form d-flex card rounded-2 flex-column "> 
                     <h1 className="title fw-bold">Sign up</h1>
                     <div className="line mb-2"></div>
@@ -129,7 +129,7 @@ function SignUp() {
                         Already have an account? <Link to="/login">Log in</Link>
                     </p>
                 </form>
-            </div>
+            </section>
         </>
     );
 }
